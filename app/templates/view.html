@@ -6,31 +6,23 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Formulario</title>
+    <title>Visualização</title>
 </head>
 <body>
 
 <div class="col-8 m-auto pt-2 pb-2 text-center">
-    <h1>Cadastro</h1>
+    <h1>Visualização</h1>
 </div>
 <div class="col-8 m-auto pt-2 pb-2">
     <a href="/" class="btn btn-info">Voltar</a>
 </div>
 
 <div class="col-8 m-auto pt-4 pb-2 text-center">
-    <div id="result"></div>
+    <strong>Modelo: </strong>{{ db.modelo }}<br>
+    <strong>Marca: </strong>{{ db.marca }}<br>
+    <strong>Preço: </strong>{{ db.preco }}<br>
 
-    <form name="form" id="form" action="{% if db %}/update/{{ db.id }}/ {% else %}/create/{% endif %}" method="post">
-        {% csrf_token %}
-        {#{{form}}#}
-        <div class="form-group mt-4">Modelo: {{ form.modelo }}</div>
-        <div class="form-group mt-4">Marca: {{ form.marca }}</div>
-        <div class="form-group mt-4">Preço: {{ form.preco }}</div>
-        <input type="submit" class="btn btn-success mt-4" value="Salvar">
-    </form>
 </div>
 
-{% load static %} }
-<script src="{% static 'javascript.js' %}"></script>
 </body>
 </html>

@@ -25,18 +25,28 @@
       <th scope="col">Modelo</th>
       <th scope="col">Marca</th>
       <th scope="col">Preço</th>
+        <th scope="col">Ações</th>
     </tr>
   </thead>
   <tbody>
+  {% for dbs in db %}
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th>{{ dbs.id }}</th>
+      <td>{{ dbs.modelo }}</td>
+      <td>{{ dbs.marca }}</td>
+      <td>{{ dbs.preco }}</td>
+      <td>
+          <a href="view/{{ dbs.id }}" class="btn btn-dark">Visualizar</a>
+          <a href="edit/{{ dbs.id }}" class="btn btn-primary">Editar</a>
+          <a href="delete/{{ dbs.id }}" class="btn btn-danger btnDel">Deletar</a>
+      </td>
     </tr>
+  {% endfor%}
+
   </tbody>
 </table>
 </div>
-
+{% load static %} }
+<script src="{% static 'javascript.js' %}"></script>
 </body>
 </html>
