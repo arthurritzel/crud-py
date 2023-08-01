@@ -1,10 +1,16 @@
 from django.shortcuts import render, redirect
 from app.forms import produtosForm
 from app.models import produtos
+from django.core.paginator import Paginator
+
 # Create your views here.
 def home (request):
     data = {}
-    data['db'] = produtos.objects.all()
+    # data['db'] = produtos.objects.all()
+    all = produtos.objects.all()
+    paginator = Paginator(all, 3)
+    pages = request.GET.get('page')
+    data['db'] = paginator.get_page(pages)
     return render(request, 'index.html', data)
 
 def form(request):

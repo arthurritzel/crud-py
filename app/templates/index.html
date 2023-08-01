@@ -17,6 +17,8 @@
     <a href="/form" class="btn btn-success">Adicionar</a>
 </div>
 
+
+
 <div class="col-8 m-auto pt-3 pb-4 text-center">
 <table class="table">
   <thead class="thead-dark">
@@ -28,7 +30,7 @@
         <th scope="col">Ações</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="table-group-divider">
   {% for dbs in db %}
     <tr>
       <th>{{ dbs.id }}</th>
@@ -46,7 +48,20 @@
   </tbody>
 </table>
 </div>
-{% load static %} }
+
+<div class="paginator text-center">
+    {% if db.has_previous %}
+        <a href="?page={{ db.previous_page_number }}" class="btn btn-dark"> < </a>
+    {% endif %}
+
+    {{db.number}}
+
+    {% if db.has_next %}
+        <a href="?page={{ db.next_page_number }}" class="btn btn-dark"> > </a>
+    {% endif %}
+</div>
+
+{% load static %}
 <script src="{% static 'javascript.js' %}"></script>
 </body>
 </html>
