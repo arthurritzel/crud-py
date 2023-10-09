@@ -1,4 +1,4 @@
-# README - CRUD com Django e MySQL
+# CRUD com Django e MySQL
 
 ![GitHub](https://img.shields.io/github/issues/arthurritzel/crud-py)
 ![GitHub](https://img.shields.io/github/forks/arthurritzel/crud-py)
